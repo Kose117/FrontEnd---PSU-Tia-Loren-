@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Adicional</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet" href="registro-adicional.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 id="title">Registro Adicional</h1>
+    </header>
+    <main>
+        <!-- AÑADIR PERSONA -->
+        <div class="formulario__grupo formulario__grupo-botones">
+            <!-- AÑADIR MENOR DE EDAD -->
+            <button type="button" class="formulario__btn2 formulario__btn-menor" id="btnMenor">
+                Añadir menor de edad (-18)
+            </button>
+
+            <!-- AÑADIR MAYOR DE EDAD -->
+            <button type="button" class="formulario__btn2 formulario__btn-mayor" id="btnMayor">
+                Añadir mayor de edad (+18)
+            </button>
+
+            <!-- NO AGREGAR PERSONA -->
+            <button type="button" class="formulario__btn2 formulario__btn-none" id="btnNone">
+                No agregar persona
+
+            </button>
+        </div>
+
+        <form action="/registro-adicional.html" class="formulario" id="formulario" method="POST">
+            <div id="dynamicForm" class="dynamic-form"></div>
+        </form>
+        <!-- CONTENEDOR PARA FORMULARIO DINÁMICO -->
+
+
+    </main>
+
+    <script src="registro-adicional.js"></script>
+</body>
+
+</html>

@@ -18,12 +18,13 @@
     </header>
 
     <main>
-        <h3>Registro Individual - Datos personales</h3>
+        <h3 class="title">Registro Individual</h3>
 
-        <p>Este registro individual es únicamente para mayores de edad (+18) si desea registrar menores de edad y su
-            grupo familiar por favor de clic en ATRAS y seleccione la opción "Grupo familiar"</p>
+        <p class="subtitle">Este formulario de registro individual está destinado exclusivamente a personas mayores de
+            18 años. Si deseas registrar a menores de edad y a tu grupo familiar, podrás hacerlo una vez hayas
+            completado este registro.</p>
 
-        <form action="/registro-adicional.html" class="formulario" id="formulario" method="POST">
+        <form action="" class="formulario" id="formulario" method="POST">
 
             <!-- TIPO DE DOCUMENTO -->
             <div class="formulario__grupo" id="grupo__tipodocumento">
@@ -210,6 +211,21 @@
                 </select>
             </div>
 
+            <!-- POLÍTICA DE TRATAMIENTO DE DATOS -->
+            <div class="formulario__grupo" id="grupo__politica">
+                <div class="formulario__grupo-input">
+                    <input type="checkbox" class="formulario__input" id="aceptar_politica" name="aceptar_politica">
+                    <!-- <i class="formulario__validacion-estado material-symbols-outlined">cancel</i> -->
+                </div>
+                <label for="aceptar_politica" class="formulario__label" id="politica__label">
+                    Aceptar la
+                    <a href="politica.html" target="_blank" class="formulario__link">política de tratamiento de
+                        datos</a>.
+                </label>
+                <p class="formulario__input-error">Debe aceptar la política de tratamiento de datos.</p>
+            </div>
+
+
             <!-- BOTON DE ENVIAR -->
             <div class="formulario__mensaje" id="formulario__mensaje">
                 <p><i class="formulario__validacion-alerta material-symbols-outlined">warning</i><b>Error: </b>
@@ -224,9 +240,6 @@
                     exitosamente!
                 </p>
             </div>
-
-
-
             <script src="formulario.js"></script>
 </body>
 

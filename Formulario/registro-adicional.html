@@ -14,9 +14,14 @@
 
 <body>
     <header>
-        <h1 id="title">Registro Adicional</h1>
+        <h1 id="title">Registro - Fundación Social Tía Loren</h1>
     </header>
     <main>
+        <h3 class="title">Registro Familiar</h3>
+
+        <p class="subtitle">Este formulario está dirigido a personas mayores de 18 años que deseen registrar a su grupo
+            familiar o personas relacionadas. A través del registro, podrás añadir hasta 5 miembros, proporcionando la
+            información necesaria para cada uno de ellos.</p>
         <!-- AÑADIR PERSONA -->
         <div class="formulario__grupo formulario__grupo-botones">
             <!-- AÑADIR MENOR DE EDAD -->
@@ -32,17 +37,24 @@
             <!-- NO AGREGAR PERSONA -->
             <button type="button" class="formulario__btn2 formulario__btn-none" id="btnNone">
                 No agregar persona
-
             </button>
         </div>
 
         <form action="/registro-adicional.html" class="formulario" id="formulario" method="POST">
             <div id="dynamicForm" class="dynamic-form"></div>
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="formulario__validacion-alerta material-symbols-outlined">warning</i><b>Error: </b> Por
+                    favor llena el formulario correctamente</p>
+            </div>
+            <div class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</div>
         </form>
-        <!-- CONTENEDOR PARA FORMULARIO DINÁMICO -->
-
-
     </main>
+
+    <!-- Ventana Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+        </div>
+    </div>
 
     <script src="registro-adicional.js"></script>
 </body>

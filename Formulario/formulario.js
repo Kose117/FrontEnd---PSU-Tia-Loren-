@@ -19,7 +19,8 @@ const campos = {
     fecha_nacimiento: false,
     celular: false,
     direccion: false,
-    correo: false
+    correo: false,
+    politica: false
 }
 
 const validarFormulario = (e) => {
@@ -42,8 +43,33 @@ const validarFormulario = (e) => {
         case "correo_titular":
             validarCampo(expresiones.correo, e.target, 'correo');
             break;
+        // case "aceptar_politica":
+        //     validarCheckbox();
+        //     break;
     }
 }
+
+const validarCheckbox = () => {
+    const aceptar = document.getElementById('aceptar_politica');
+    const campo = 'politica';
+
+    if (aceptar.checked) {
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
+        // const icono = document.querySelector(`#grupo__${campo} .formulario__validacion-estado`);
+        // icono.outerHTML = '<i class="formulario__validacion-estado material-symbols-outlined">check_circle</i>';
+        // document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
+        campos[campo] = true;
+    } else {
+        document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
+        document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
+        // const icono = document.querySelector(`#grupo__${campo} .formulario__validacion-estado`);
+        // icono.outerHTML = '<i class="formulario__validacion-estado material-symbols-outlined">cancel</i>';
+        // document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
+        campos[campo] = false;
+    }
+};
+
 
 const validarCampo = (expresion, input, campo) => {
     if (expresion.test(input.value)) {
@@ -53,7 +79,6 @@ const validarCampo = (expresion, input, campo) => {
         icono.outerHTML = '<i class="formulario__validacion-estado material-symbols-outlined">check_circle</i>';
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
         campos[campo] = true;
-
     } else {
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
@@ -92,16 +117,9 @@ const validarFechaNacimiento = (input) => {
     }
 }
 
-
 inputs.forEach((input) => {
     input.addEventListener('keyup', validarFormulario);
     input.addEventListener('blur', validarFormulario);
-});
-
-selects.forEach((select) => {
-    select.addEventListener('change', () => {
-        validarSelects();
-    });
 });
 
 calendar.forEach((calendar) => {
@@ -111,8 +129,9 @@ calendar.forEach((calendar) => {
 formulario.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento) {
-        formulario.reset();
+    validarCheckbox();
+
+    if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
 
         document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
         setTimeout(() => {
@@ -122,6 +141,11 @@ formulario.addEventListener('submit', (e) => {
         document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
             icono.classList.remove('formulario__grupo-correcto');
         });
+
+        formulario.reset();
+        // Redirigir a la página deseada
+        window.location.href = 'registro-adicional.html';  // Solo redirige si todo está correcto
+
     } else {
         const mensajeError = document.getElementById('formulario__mensaje');
         mensajeError.classList.add('formulario__mensaje-activo');
@@ -133,19 +157,5 @@ formulario.addEventListener('submit', (e) => {
     }
 });
 
-document.getElementById('formulario').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evita el envío automático del formulario
 
-    // Aquí puedes realizar validaciones adicionales si es necesario
-    // Ejemplo de validación simple
-    const esValido = true; // Cambia esta lógica según tu validación
-
-    if (esValido) {
-        // Si las validaciones pasan, redirigir a otra página
-        window.location.href = 'registro-adicional.html'; // Redirige a la página deseada
-    } else {
-        // Mostrar mensajes de error si las validaciones no pasan
-        alert('Por favor, complete todos los campos correctamente.');
-    }
-});
 

@@ -4,7 +4,7 @@
 
 body {
     font-family: 'Rubik', sans-serif;
-    background: #ffffff;
+    background-image: url(http://www.fundatialoren.com/img/fom_bg.jpg);
 }
 
 main {
@@ -16,7 +16,17 @@ main {
 
 header {
     text-align: center;
-    margin: 10px;
+    margin-top: 40px;
+}
+
+h1 {
+    margin: 0;
+    color: #FECE1A;
+}
+
+.title,
+.subtitle {
+    color: #fffff0;
 }
 
 .formulario {
@@ -34,6 +44,18 @@ header {
     padding: 10px;
     cursor: pointer;
 }
+
+#politica__label {
+    display: inline;
+}
+
+#grupo__politica {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .formulario__grupo-input {
     position: relative;

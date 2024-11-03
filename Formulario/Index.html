@@ -10,12 +10,13 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="estilo-formulario.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
 </head>
+<header>
+    <h1>Registro - Fundación Social Tía Loren</h1>
+</header>
 
 <body>
-    <header>
-        <h1>Registro - Fundación Social Tía Loren</h1>
-    </header>
 
     <main>
         <h3 class="title">Registro Individual</h3>
@@ -211,16 +212,13 @@
                 </select>
             </div>
 
-            <!-- POLÍTICA DE TRATAMIENTO DE DATOS -->
             <div class="formulario__grupo" id="grupo__politica">
                 <div class="formulario__grupo-input">
                     <input type="checkbox" class="formulario__input" id="aceptar_politica" name="aceptar_politica">
-                    <!-- <i class="formulario__validacion-estado material-symbols-outlined">cancel</i> -->
                 </div>
                 <label for="aceptar_politica" class="formulario__label" id="politica__label">
                     Aceptar la
-                    <a href="politica.html" target="_blank" class="formulario__link">política de tratamiento de
-                        datos</a>.
+                    <a href="#" id="politicaLink" class="formulario__link">política de tratamiento de datos</a>.
                 </label>
                 <p class="formulario__input-error">Debe aceptar la política de tratamiento de datos.</p>
             </div>
@@ -240,7 +238,103 @@
                     exitosamente!
                 </p>
             </div>
-            <script src="formulario.js"></script>
+
+
+            <!-- Modal de Política de Tratamiento de Datos -->
+            <div id="modalPolitica" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Política de Tratamiento de Datos</h2>
+                    <p>Para efectos del tratamiento de los datos personales recolectados con anterioridad a la entrada
+                        en
+                        vigencia
+                        del Decreto 1377 de 2013, reglamentario de la Ley 1581 de 2012, La Fundación Social La Tía
+                        Loren, como
+                        responsable de los datos personales obtenidos a través de sus distintos canales de atención,
+                        solicita a
+                        todas las personas que en algún momento por razones de la actividad que despliega la entidad
+                        hayan
+                        suministrado datos personales, su autorización para que de manera libre, previa, expresa y
+                        voluntaria
+                        permitan continuar con su tratamiento.</p>
+
+                    <p>Tal autorización permitirá a la Fundación Social La Tía Loren, recolectar, almacenar, usar,
+                        circular,
+                        suprimir, actualizar y transmitir, de acuerdo con el Procedimiento para el tratamiento de los
+                        datos
+                        personales en procura de cumplir con las siguientes finalidades:
+                        (1) validar la información para fines estadísticos de las temáticas de apropiación de las TIC,
+                        en
+                        cumplimiento de la exigencia legal de conocimiento del usuario.</p>
+
+                    <p>El alcance de la autorización comprende la facultad para que la Fundación Social La Tía Loren le
+                        envíe
+                        mensajes con contenidos institucionales, notificaciones de nuevas actividades o jornadas, y
+                        demás
+                        información relativa al portafolio de servicios de la Fundación, a través de correo electrónico.
+                    </p>
+
+                    <p>Los titulares podrán ejercer sus derechos de conocer, actualizar, rectificar y suprimir sus datos
+                        personales, a través del correo info@fundatialoren.com</p>
+
+                    <p>Al diligenciar este formulario de inscripción, usted autoriza a la Fundación Social La Tía Loren
+                        a
+                        almacenar
+                        sus datos en la base de datos de la Fundación, al dar clic en siguiente se da por sentado la
+                        aceptación
+                        de
+                        los términos anteriormente descritos.</p>
+                </div>
+            </div>
+        </form>
+    </main>
+    <script src="formulario.js"></script>
 </body>
+
+<footer>
+    <div class="content">
+        <div class="left box">
+            <div class="upper">
+                <div class="topic">Acerca de nosotros</div>
+                <p>Somos una organización sin ánimo de lucro</p>
+            </div>
+            <div class="lower">
+                <div class="topic">Contactanos</div>
+                <div class="phone">
+                    <a href="#"><i class="fas fa-phone"></i>(+57) 3202509998</a>
+                </div>
+                <div class="email">
+                    <a href="#"><i class="fas fa-envelope"></i>fundacionsociallatialoren@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="middle box">
+            <div class="topic">Nuestros proyectos</div>
+            <div><a href="#">Proyecto nutricional</a></div>
+            <div><a href="#">Proyecto ecológico</a></div>
+            <div><a href="#">Proyecto un sueño hecho realidad</a></div>
+            <div><a href="#">Proyecto recreativo</a></div>
+            <div><a href="#">Proyecto rural</a></div>
+            <div><a href="#">Proyecto jornada alterna</a></div>
+        </div>
+        <div class="right box">
+            <div class="topic">Regístrate</div>
+            <form action="#">
+                <input type="submit" name="" value="Formulario">
+                <div class="media-icons">
+                    <a href="https://www.facebook.com/fundacionsociallatialoren/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fundaciontialoren/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@fundaciontialoren8281" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>Copyright ©2024 <a href="#">Tía Loren</a> Todos los derechos reservados</p>
+    </div>
+</footer>
 
 </html>

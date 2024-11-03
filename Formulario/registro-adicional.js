@@ -7,6 +7,7 @@ const campos = { // Debe estar global para acceder en todas las funciones
     correo: false
 };
 
+
 const expresiones = {
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/,
     correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -28,8 +29,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function handleFormSubmit(event) {
         event.preventDefault(); // Previene el envío real del formulario
 
+        // Imprimir el valor de los campos
+        console.log(campos);
+
         // Verifica si todos los campos son válidos
-        if ((campos.nrodocumento && campos.nombre && campos.celular && campos.fecha_nacimiento) || (campos.nrodocumento && campos.nombre && campos.celular && campos.correo)) {
+        if ((campos.direccion && campos.nombre && campos.celular && campos.correo) || (campos.nrodocumento && campos.nombre && campos.celular)) {
+            console.log('Formulario enviado correctamente');
             document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
             setTimeout(() => {
                 document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
@@ -89,12 +94,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
         } else {
+            console.log('Formulario enviado incorrecto');
             const mensajeError = document.getElementById('formulario__mensaje');
             mensajeError.classList.add('formulario__mensaje-activo');
 
             setTimeout(() => {
                 mensajeError.classList.remove('formulario__mensaje-activo');
-            }, 3000);
+            }, 1000);
         }
     }
 
@@ -114,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("mayor");
             inputsDinamicos.forEach((input) => {
                 input.addEventListener('keyup', validarFormularioMayores);
-                input.addEventListener('blur', validarFormularioMayores);
+                //input.addEventListener('blur', validarFormularioMayores);
             });
         }
 
@@ -122,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("menor");
             inputsDinamicos.forEach((input) => {
                 input.addEventListener('keyup', validarFormularioMenores);
-                input.addEventListener('blur', validarFormularioMenores);
+                //input.addEventListener('blur', validarFormularioMenores);
             });
         }
 
@@ -133,7 +139,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mostrar formulario para menor de edad
     btnMenor.addEventListener('click', () => {
-        document.body.style.backgroundImage = 'url(../Formulario/assets/design.jpg)'; // Fondo amarillo
+        //document.body.style.backgroundImage = 'url(https://res.cloudinary.com/dg12dbcp1/image/upload/v1727068740/design_mqggng.jpg)'; // Fondo amarillo
+        document.body.style.backgroundImage = 'url(./assets/design.jpg)';
         document.getElementById('title').style.color = '#000000'; // Color de texto
         document.getElementsByClassName('title')[0].style.color = '#000000';
         document.getElementsByClassName('subtitle')[0].style.color = '#000000';
@@ -428,9 +435,6 @@ const validarFormularioMenores = (e) => {
         case "nombre_titular":
             validarCampo(expresiones.nombre, e.target, 'nombre');
             break;
-        case "fecha_nacimiento":
-            validarFechaNacimiento(e.target);
-            break;
         case "celular_titular":
             validarCampo(expresiones.telefono, e.target, 'celular');
             break;
@@ -439,7 +443,7 @@ const validarFormularioMenores = (e) => {
 
 const validarCampo = (expresion, input, campo) => {
     if (expresion.test(input.value)) {
-        console.log('correcto');
+        console.log('correcto' + campo);
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-correcto');
         const icono = document.querySelector(`#grupo__${campo} .formulario__validacion-estado`);
@@ -447,40 +451,12 @@ const validarCampo = (expresion, input, campo) => {
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.remove('formulario__input-error-activo');
         campos[campo] = true;
     } else {
-        console.log('incorrecto');
+        console.log('incorrecto' + campo);
         document.getElementById(`grupo__${campo}`).classList.add('formulario__grupo-incorrecto');
         document.getElementById(`grupo__${campo}`).classList.remove('formulario__grupo-correcto');
         const icono = document.querySelector(`#grupo__${campo} .formulario__validacion-estado`);
         icono.outerHTML = '<i class="formulario__validacion-estado material-symbols-outlined">cancel</i>';
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos[campo] = false;
-    }
-}
-
-const validarFechaNacimiento = (input) => {
-    const fechaIngresada = new Date(input.value);
-    const fechaActual = new Date();
-    fechaActual.setHours(0, 0, 0, 0); // Asegura que la comparación se haga solo con la fecha, sin considerar la hora.
-
-    // Calcula la edad de la persona
-    let edad = fechaActual.getFullYear() - fechaIngresada.getFullYear();
-    const mes = fechaActual.getMonth() - fechaIngresada.getMonth();
-
-    // Ajusta la edad si el mes actual es menor al mes de nacimiento o si es el mismo mes pero el día aún no ha llegado
-    if (mes < 0 || (mes === 0 && fechaActual.getDate() < fechaIngresada.getDate())) {
-        edad--;
-    }
-
-    // Verifica si la persona tiene al menos 18 años
-    if (edad >= 18) {
-        document.getElementById(`grupo__fechanacimiento`).classList.remove('formulario__grupo-incorrecto');
-        document.getElementById(`grupo__fechanacimiento`).classList.add('formulario__grupo-correcto');
-        document.querySelector(`#grupo__fechanacimiento .formulario__input-error`).classList.remove('formulario__input-error-activo');
-        campos['fecha_nacimiento'] = true;
-    } else {
-        document.getElementById(`grupo__fechanacimiento`).classList.add('formulario__grupo-incorrecto');
-        document.getElementById(`grupo__fechanacimiento`).classList.remove('formulario__grupo-correcto');
-        document.querySelector(`#grupo__fechanacimiento .formulario__input-error`).classList.add('formulario__input-error-activo');
-        campos['fecha_nacimiento'] = false;
     }
 }

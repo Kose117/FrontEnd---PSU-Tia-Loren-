@@ -157,5 +157,28 @@ formulario.addEventListener('submit', (e) => {
     }
 });
 
+// Otros scripts que tengas en tu formulario.js
+
+// Modal de Política de Tratamiento de Datos
+const modal = document.getElementById('modalPolitica');
+const politicaLink = document.getElementById('politicaLink');
+const closeModal = document.querySelector('.modal .close');
+
+politicaLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.style.display = 'block';
+});
+
+closeModal.addEventListener('click', () => {
+    modal.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+});
+
+
 
 

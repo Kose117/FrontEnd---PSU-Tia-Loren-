@@ -36,3 +36,23 @@ h2 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Añade un pequeño sombreado para mayor visibilidad */
 }
+
+.politica_boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+}
+
+.politica_boton button {
+    height: 45px;
+    padding: 0 15px;
+    background: #090265;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s ease all;
+}

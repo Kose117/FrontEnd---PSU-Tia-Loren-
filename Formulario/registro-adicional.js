@@ -63,7 +63,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         modal.style.display = "none";
                     }
                 }
-                // alert(`Persona registrada correctamente. Has registrado ${personCount} de 5 personas.`);
+
+                const datosFormulario = obtenerDatosFormulario(); // Obtener datos del formulario
+                console.log(datosFormulario); // Ver en la consola los datos obtenidos
+                enviarDatos();
+
                 dynamicForm.innerHTML = ''; // Limpia el formulario dinámico para permitir agregar otra persona
                 formulario.reset(); // Resetea el formulario
                 document.getElementById('formulario').style.backgroundColor = 'transparent';
@@ -108,6 +112,33 @@ document.addEventListener('DOMContentLoaded', () => {
     btnNone.addEventListener('click', () => {
         window.location.href = 'index.html';
     });
+
+    function obtenerDatosFormulario(tipo) {
+        const datos = {};
+
+        // Lista de campos específicos para cada tipo de formulario
+        const camposMayores = ["direccion", "nombre_titular", "fecha_nacimiento", "sexo_titular", "celular_titular", "correo_titular", "parentesco"];
+        const camposMenores = ["tipo_documento", "numero_documento", "nombre_titular", "fecha_nacimiento", "sexo_titular", "celular_titular", "parentesco"];
+
+        // Selecciona la lista de campos dependiendo del tipo
+        const camposPermitidos = tipo === "mayor" ? camposMayores : camposMenores;
+
+        // Recorre todos los inputs y selects en el formulario dinámico
+        const inputs = dynamicForm.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            // Solo guarda el campo si está en la lista de permitidos
+            if (camposPermitidos.includes(input.name)) {
+                if (input.type === "radio" || input.type === "checkbox") {
+                    if (input.checked) datos[input.name] = input.value;
+                } else {
+                    datos[input.name] = input.value;
+                }
+            }
+        });
+
+        return datos;
+    }
+
 
     // Función que agrega eventos de validación a los campos dinámicos
     function agregarEventosDinamicos(tipo) {
@@ -459,4 +490,17 @@ const validarCampo = (expresion, input, campo) => {
         document.querySelector(`#grupo__${campo} .formulario__input-error`).classList.add('formulario__input-error-activo');
         campos[campo] = false;
     }
+}
+
+function enviarDatos(datosFormulario) {
+    /*fetch('/ruta_del_servidor', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datosFormulario)
+    })
+        .then(response => response.json())
+        .then(data => console.log('Datos guardados:', data))
+        .catch(error => console.error('Error:', error));*/
 }

@@ -126,38 +126,139 @@ calendar.forEach((calendar) => {
     calendar.addEventListener('change', validarFormulario);
 });
 
-formulario.addEventListener('submit', (e) => {
-    e.preventDefault();
 
-    validarCheckbox();
+document.addEventListener("DOMContentLoaded", () => {
+    const formulario = document.getElementById("formulario");
+    const btnAgregarGrupo = document.querySelector(".formulario__btn-agregar");
+    const btnEnviar = document.querySelector(".formulario__btn-enviar");
+    const modal = document.getElementById("myModal");
+    const modalContent = document.querySelector(".modal-content");
+    const closeModal = document.querySelector(".modal .close");
 
-    if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
-
-        document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+    // Función para mostrar el modal de éxito
+    function mostrarModalExito(mensaje) {
+        document.getElementById("modal-message").innerText = mensaje;
+        modal.style.display = "block";
         setTimeout(() => {
-            document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+            modal.style.display = "none";
         }, 3000);
+    }
 
-        document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-            icono.classList.remove('formulario__grupo-correcto');
+    // Cerrar el modal cuando se hace clic en la "X" o fuera del modal
+    closeModal.onclick = () => {
+        modal.style.display = "none";
+    };
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Evento para el botón "Agregar grupo familiar"
+    btnAgregarGrupo.addEventListener("click", (e) => {
+        e.preventDefault(); // Evita el envío del formulario directamente
+        validarCheckbox();
+
+        if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
+            const datosFormulario = obtenerDatosFormulario(); // Obtener todos los datos del formulario
+            enviarDatos(datosFormulario); // Envía los datos al servidor
+
+
+            formulario.reset(); // Resetea el formulario
+            ocultarValidaciones();
+            mostrarModalExito("Formulario enviado exitosamente! Ahora puedes registrar a tu grupo familiar.");
+
+            setTimeout(() => {
+                window.location.href = "registro-adicional.html"; // Redirige después del éxito
+            }, 3000);
+        } else {
+            mostrarMensajeError();
+        }
+    });
+
+    // Evento para el botón "Enviar"
+    btnEnviar.addEventListener("click", (e) => {
+        e.preventDefault(); // Evita el envío del formulario directamente
+        validarCheckbox();
+
+        if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
+            const datosFormulario = obtenerDatosFormulario(); // Obtener todos los datos del formularios
+            enviarDatos(datosFormulario);
+            mostrarModalExito("Formulario enviado exitosamente!");
+            formulario.reset(); // Resetea el formulario
+            ocultarValidaciones();
+        } else {
+            mostrarMensajeError();
+        }
+    });
+
+    function ocultarValidaciones() {
+        const grupos = formulario.querySelectorAll(".formulario__grupo");
+        grupos.forEach((grupo) => {
+            grupo.classList.remove("formulario__grupo-correcto", "formulario__grupo-incorrecto");
         });
 
-        formulario.reset();
-        // Redirigir a la página deseada
-        window.location.href = 'registro-adicional.html';  // Solo redirige si todo está correcto
+        // Remueve los íconos de validación
+        const iconos = formulario.querySelectorAll(".formulario__validacion-estado");
+        iconos.forEach((icono) => {
+            icono.style.display = "none"; // Oculta los íconos
+        });
 
-    } else {
-        const mensajeError = document.getElementById('formulario__mensaje');
-        mensajeError.classList.add('formulario__mensaje-activo');
-
-        // Agregar timeout para esconder el mensaje de error
-        setTimeout(() => {
-            mensajeError.classList.remove('formulario__mensaje-activo');
-        }, 3000);
+        // Restablece el estado de los campos
+        for (const campo in campos) {
+            campos[campo] = false;
+        }
     }
 });
 
-// Otros scripts que tengas en tu formulario.js
+
+// Función para capturar todos los datos del formulario
+function obtenerDatosFormulario() {
+    const datos = {};
+    const inputs = document.querySelectorAll("#formulario input");
+    const selects = document.querySelectorAll("#formulario select");
+
+    inputs.forEach((input) => {
+        if (input.type === "checkbox") {
+            datos[input.name] = input.checked; // Guarda true o false
+        } else {
+            datos[input.name] = input.value; // Guarda el valor del input
+        }
+    });
+
+    selects.forEach((select) => {
+        datos[select.name] = select.value; // Guarda el valor seleccionado
+    });
+
+    console.log("Datos del formulario:", datos);
+
+    return datos;
+}
+
+// Función para enviar los datos al servidor
+function enviarDatos(datosFormulario) {
+    /*fetch("/ruta_del_servidor", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosFormulario),
+    })
+        .then((response) => response.json())
+        .then((data) => console.log("Datos guardados en el servidor:", data))
+        .catch((error) => console.error("Error:", error));*/
+}
+
+// Función para mostrar mensaje de error
+function mostrarMensajeError() {
+    const mensajeError = document.getElementById("formulario__mensaje");
+    mensajeError.classList.add("formulario__mensaje-activo");
+
+    setTimeout(() => {
+        mensajeError.classList.remove("formulario__mensaje-activo");
+    }, 3000);
+}
+
 
 // Modal de Política de Tratamiento de Datos
 const modal = document.getElementById('modalPolitica');

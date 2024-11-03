@@ -129,8 +129,15 @@ h1 {
 
 .formulario__grupo-btn-enviar {
     display: flex;
-    flex-direction: column;
+    gap: 10px;
+    /* Espacio entre botones */
     align-items: center;
+    justify-content: center;
+}
+
+.formulario__grupo-btn-enviar button:first-child {
+    background-color: #FECE1A;
+    color: #000000;
 }
 
 .formulario__btn {

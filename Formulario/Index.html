@@ -233,7 +233,11 @@
             </div>
 
             <div class="formulario__grupo formulario__grupo-btn-enviar">
-                <button type="submit" class="formulario__btn">Enviar</button>
+                <button type="submit" class="formulario__btn formulario__btn-agregar">Agregar grupo familiar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado
+                    exitosamente!
+                </p>
+                <button type="submit" class="formulario__btn formulario__btn-enviar">Enviar</button>
                 <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado
                     exitosamente!
                 </p>
@@ -288,6 +292,15 @@
             </div>
         </form>
     </main>
+
+    <!-- Modal de éxito -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message">Formulario enviado exitosamente!</p>
+        </div>
+    </div>
+
     <script src="formulario.js"></script>
 </body>
 

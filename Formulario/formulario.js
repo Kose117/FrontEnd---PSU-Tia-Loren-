@@ -280,6 +280,16 @@ window.addEventListener('click', (e) => {
     }
 });
 
+document.getElementById('ciudad').addEventListener('change', function () {
+    const grupoLocalidad = document.getElementById('grupo__localidad');
+    if (this.value === 'bogota') {
+        grupoLocalidad.style.display = 'block';
+    } else {
+        grupoLocalidad.style.display = 'none';
+    }
+});
+
+
 
 
 

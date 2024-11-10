@@ -416,6 +416,11 @@ footer .content .media-icons a {
     display: inline-flex;
 }
 
+#grupo__localidad {
+    transition: all 0.3s ease-in-out;
+}
+
+
 .content .media-icons a:hover {
     border-color: var(--color-contraste);
 }

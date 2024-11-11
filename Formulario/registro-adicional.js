@@ -290,6 +290,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <!-- BOTON DE ENVIAR -->
+                <div class="formulario__mensaje" id="formulario__mensaje">
+                    <p><i class="formulario__validacion-alerta material-symbols-outlined">warning</i><b>Error: </b>
+                        Por
+                        favor   
+                        llena el formulario correctamente</p>
+                </div> 
 
                 <div class="formulario__grupo formulario__grupo-btn-enviar">
                     <button type="submit" class="formulario__btn">Enviar</button>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Tia Loren</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,400i,500,500i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="formulario_grupo_familiar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
+</head>
+<header>
+    <h1>Registro - Fundación Social Tía Loren</h1>
+</header>
+
+<body>
+
+    <main>
+        <h3 class="title">Registro Individual</h3>
+
+        <p class="subtitle">Este formulario de registro individual está destinado exclusivamente a personas mayores de
+            18 años. Si deseas registrar a menores de edad y a tu grupo familiar, podrás hacerlo una vez hayas
+            completado este registro.</p>
+
+        <form action="" class="formulario" id="formulario" method="POST">
+
+            <!-- TIPO DE DOCUMENTO -->
+            <div class="formulario__grupo" id="grupo__tipodocumento">
+                <label for="tipo_documento" class="formulario__label">Tipo de documento:</label>
+                <select class="formulario__input" id="tipo_documento" name="tipo_documento" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="cedula">Cédula - CC</option>
+                    <option value="pasaporte">Cédula de extranjería - CE</option>
+                </select>
+            </div>
+
+            <!-- NRO DE DOCUMENTO -->
+            <div class="formulario__grupo" id="grupo__nrodocumento">
+                <label for="numero_documento" class="formulario__label">Número de Documento:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" id="numero_documento" name="numero_documento" required
+                        placeholder="Ingresar numero de documento">
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error">El número de documento debe contener máximo 10 dígitos numéricos y
+                    debe escribirse sin puntos ni comas.</p>
+            </div>
+
+            <!-- NOMBRE -->
+            <div class="formulario__grupo" id="grupo__nombre">
+                <label for="nombre_titular" class="formulario__label">Nombre del Titular:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" id="nombre_titular" name="nombre_titular"
+                        placeholder="Ingresar nombre" required>
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error">El nombre solo puede contener letras y espacios.</p>
+            </div>
+
+            <!-- FECHA NACIMIENTO -->
+            <div class="formulario__grupo" id="grupo__fechanacimiento">
+                <label for="fecha_nacimiento" class="formulario__label">Fecha de Nacimiento del Titular:</label>
+                <div class="formulario__grupo-input">
+                    <input type="date" class="formulario__input" id="fecha_nacimiento" name="fecha_nacimiento" required>
+                </div>
+                <p class="formulario__input-error">Debe ser mayor de 18 años y la fecha no puede ser posterior a la
+                    fecha actual.</p>
+            </div>
+
+            <!-- SEXO -->
+            <div class="formulario__grupo" id="grupo__sexo">
+                <label for="sexo_titular" class="formulario__label">Sexo:</label>
+                <select id="sexo_titular" class="formulario__input" name="sexo_titular" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="hombre">Hombre</option>
+                    <option value="hombre">Otro</option>
+                </select>
+            </div>
+
+            <!-- CELULAR -->
+            <div class="formulario__grupo" id="grupo__celular">
+                <label for="celular_titular" class="formulario__label">Número Celular:</label>
+                <div class="formulario__grupo-input">
+                    <input type="tel" class="formulario__input" id="celular_titular" name="celular_titular"
+                        placeholder="Ingresar número de celular" required>
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error">El número de celular debe contener un máximo de 10 dígitos numéricos.
+                </p>
+            </div>
+
+            <!-- DIRECCION -->
+            <div class="formulario__grupo" id="grupo__direccion">
+                <label for="direccion_titular" class="formulario__label">Dirección:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" id="direccion_titular" name="direccion_titular"
+                        required>
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error"> La direccioón debe tener el formato Cra 0 #00-00 </p>
+            </div>
+
+            <!-- CORREO -->
+            <div class="formulario__grupo" id="grupo__correo">
+                <label for="correo_titular" class="formulario__label">Correo del Titular:</label>
+                <div class="formulario__grupo-input">
+                    <input type="email" class="formulario__input" id="correo_titular" name="correo_titular" required>
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error">Ingresa un correo valido.</p>
+            </div>
+
+            <!-- ESTRATO SOCIAL -->
+            <div class="formulario__grupo" id="grupo__estrato">
+                <label for="estrato_social" class="formulario__label">Estrato Social del Grupo Familiar:</label>
+                <select id="estrato_social" class="formulario__input" name="estrato_social" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+            <!-- EPS -->
+            <div class="formulario__grupo" id="grupo__eps">
+                <label for="eps" class="formulario__label">EPS:</label>
+                <select name="eps" class="formulario__input" id="eps" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="famisanar">Famisanar</option>
+                    <option value="salud_total">Salud Total</option>
+                    <option value="compensar">Compensar</option>
+                    <option value="sisben">Sisben</option>
+                    <option value="coomeva">Coomeva</option>
+                    <option value="sanitas">Sanitas</option>
+                    <option value="cafe_salud">Café Salud</option>
+                    <option value="nueva_eps">Nueva EPS</option>
+                    <option value="sura">Sura</option>
+                    <option value="otra">Otra</option>
+                </select>
+            </div>
+
+            <!-- GRUPO POBLACIONAL -->
+            <div class="formulario__grupo" id="grupo__grupo_poblacional">
+                <label for="grupo_poblacional" class="formulario__label">Grupo Poblacional:</label>
+                <select name="grupo_poblacional" class="formulario__input" id="grupo_poblacional" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="adulto">Adulto</option>
+                    <option value="adulto_mayor">Adulto mayor</option>
+                    <option value="discapacidad">Discapacidad</option>
+                    <option value="juventud">Juventud activa</option>
+                    <option value="madre_cabeza">Madre Cabeza de Hogar</option>
+                    <option value="madre_gestante">Madre gestante</option>
+                    <option value="madre_lactante">Madre lactante</option>
+                    <option value="padre_cabeza">Padre Cabeza de Hogar</option>
+                    <option value="primera_infancia">Primera infancia</option>
+                </select>
+            </div>
+
+            <!-- GRUPO VULNERABILIDAD -->
+            <div class="formulario__grupo" id="grupo__grupo_vulnerabilidad">
+                <label for="grupo_vulnerabilidad" class="formulario__label">Grupo Vulnerabilidad:</label>
+                <select name="grupo_vulnerabilidad" class="formulario__input" id="grupo_vulnerabilidad" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <!-- Opción vacía predeterminada -->
+                    <option value="desplazamiento">Desplazamiento</option>
+                    <option value="discapacidad">Discapacidad</option>
+                    <option value="negritudes">Negritudes</option>
+                    <option value="poblacion_indigena">Población indígena</option>
+                    <option value="recurso_economico">Recurso económico</option>
+                    <option value="victima_conflicto_armado">Víctima del conflicto armado</option>
+                    <option value="violencia_intrafamiliar">Violencia intrafamiliar</option>
+                    <option value="descomposicion_familiar">Descomposición familiar</option>
+                </select>
+            </div>
+
+            <!-- GRUPO SANGUINEO -->
+            <div class="formulario__grupo" id="grupo__grupo_sanguineo">
+                <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo:</label>
+                <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="o">O</option>
+                    <option value="ab">AB</option>
+                    <option value="a-">A-</option>
+                    <option value="b-">B-</option>
+                    <option value="o-">O-</option>
+                    <option value="ab-">AB-</option>
+                </select>
+            </div>
+
+            <!-- CIUDAD DONDE VIVE -->
+            <div class="formulario__grupo" id="grupo__grupo_ciudad">
+                <label for="ciudad" class="formulario__label">Ciudad:</label>
+                <select name="ciudad" class="formulario__input" id="ciudad" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="bogota">Bogotá</option>
+                    <option value="suesca">Suesca</option>
+                    <option value="nemocon">Nemocón</option>
+                    <option value="zipaquira">Zipaquirá</option>
+                    <option value="mosquera">Mosquera</option>
+                    <option value="la_calera">La Calera</option>
+                    <option value="une">Une</option>
+                    <option value="soacha">Soacha</option>
+                    <option value="otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="formulario__grupo" id="grupo__localidad" style="display: none;">
+                <label for="localidad" class="formulario__label">Localidad:</label>
+                <select name="localidad" class="formulario__input" id="localidad">
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="usaquen">Usaquén</option>
+                    <option value="chapinero">Chapinero</option>
+                    <option value="santa_fe">Santa Fe</option>
+                    <option value="san_cristobal">San Cristóbal</option>
+                    <option value="usme">Usme</option>
+                    <option value="tunjuelito">Tunjuelito</option>
+                    <option value="bosa">Bosa</option>
+                    <option value="kennedy">Kennedy</option>
+                    <option value="fontibon">Fontibón</option>
+                    <option value="engativa">Engativá</option>
+                    <option value="suba">Suba</option>
+                    <option value="barrios_unidos">Barrios Unidos</option>
+                    <option value="teusaquillo">Teusaquillo</option>
+                    <option value="los_martires">Los Mártires</option>
+                    <option value="antonio_narino">Antonio Nariño</option>
+                    <option value="puente_aranda">Puente Aranda</option>
+                    <option value="candelaria">La Candelaria</option>
+                    <option value="rafael_uribe">Rafael Uribe Uribe</option>
+                    <option value="ciudad_bolivar">Ciudad Bolívar</option>
+                    <option value="sumapaz">Sumapaz</option>
+                </select>
+            </div>
+
+
+            <div class="formulario__grupo" id="grupo__politica">
+                <div class="formulario__grupo-input">
+                    <input type="checkbox" class="formulario__input" id="aceptar_politica" name="aceptar_politica">
+                </div>
+                <label for="aceptar_politica" class="formulario__label" id="politica__label">
+                    Aceptar la
+                    <a href="#" id="politicaLink" class="formulario__link">política de tratamiento de datos</a>.
+                </label>
+                <p class="formulario__input-error">Debe aceptar la política de tratamiento de datos.</p>
+            </div>
+
+
+            <!-- BOTON DE ENVIAR -->
+            <div class="formulario__mensaje" id="formulario__mensaje">
+                <p><i class="formulario__validacion-alerta material-symbols-outlined">warning</i><b>Error: </b>
+                    Por
+                    favor
+                    llena el formulario correctamente</p>
+            </div>
+
+            <div class="formulario__grupo formulario__grupo-btn-enviar">
+                <button type="submit" class="formulario__btn formulario__btn-enviar">Continuar</button>
+                <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado
+                    exitosamente!
+                </p>
+            </div>
+
+
+            <!-- Modal de Política de Tratamiento de Datos -->
+            <div id="modalPolitica" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Política de Tratamiento de Datos</h2>
+                    <p>Para efectos del tratamiento de los datos personales recolectados con anterioridad a la entrada
+                        en
+                        vigencia
+                        del Decreto 1377 de 2013, reglamentario de la Ley 1581 de 2012, La Fundación Social La Tía
+                        Loren, como
+                        responsable de los datos personales obtenidos a través de sus distintos canales de atención,
+                        solicita a
+                        todas las personas que en algún momento por razones de la actividad que despliega la entidad
+                        hayan
+                        suministrado datos personales, su autorización para que de manera libre, previa, expresa y
+                        voluntaria
+                        permitan continuar con su tratamiento.</p>
+
+                    <p>Tal autorización permitirá a la Fundación Social La Tía Loren, recolectar, almacenar, usar,
+                        circular,
+                        suprimir, actualizar y transmitir, de acuerdo con el Procedimiento para el tratamiento de los
+                        datos
+                        personales en procura de cumplir con las siguientes finalidades:
+                        (1) validar la información para fines estadísticos de las temáticas de apropiación de las TIC,
+                        en
+                        cumplimiento de la exigencia legal de conocimiento del usuario.</p>
+
+                    <p>El alcance de la autorización comprende la facultad para que la Fundación Social La Tía Loren le
+                        envíe
+                        mensajes con contenidos institucionales, notificaciones de nuevas actividades o jornadas, y
+                        demás
+                        información relativa al portafolio de servicios de la Fundación, a través de correo electrónico.
+                    </p>
+
+                    <p>Los titulares podrán ejercer sus derechos de conocer, actualizar, rectificar y suprimir sus datos
+                        personales, a través del correo info@fundatialoren.com</p>
+
+                    <p>Al diligenciar este formulario de inscripción, usted autoriza a la Fundación Social La Tía Loren
+                        a
+                        almacenar
+                        sus datos en la base de datos de la Fundación, al dar clic en siguiente se da por sentado la
+                        aceptación
+                        de
+                        los términos anteriormente descritos.</p>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Modal de éxito -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-message">Formulario enviado exitosamente!</p>
+        </div>
+    </div>
+
+    <script src="formulario_grupo_familiar.js"></script>
+</body>
+
+<footer>
+    <div class="content">
+        <div class="left box">
+            <div class="upper">
+                <div class="topic">Acerca de nosotros</div>
+                <p>Somos una organización sin ánimo de lucro</p>
+            </div>
+            <div class="lower">
+                <div class="topic">Contactanos</div>
+                <div class="phone">
+                    <a href="#"><i class="fas fa-phone"></i>(+57) 3202509998</a>
+                </div>
+                <div class="email">
+                    <a href="#"><i class="fas fa-envelope"></i>fundacionsociallatialoren@gmail.com</a>
+                </div>
+            </div>
+        </div>
+        <div class="middle box">
+            <div class="topic">Nuestros proyectos</div>
+            <div><a href="#">Proyecto nutricional</a></div>
+            <div><a href="#">Proyecto ecológico</a></div>
+            <div><a href="#">Proyecto un sueño hecho realidad</a></div>
+            <div><a href="#">Proyecto recreativo</a></div>
+            <div><a href="#">Proyecto rural</a></div>
+            <div><a href="#">Proyecto jornada alterna</a></div>
+        </div>
+        <div class="right box">
+            <div class="topic">Regístrate</div>
+            <form action="#">
+                <input type="submit" name="" value="Formulario">
+                <div class="media-icons">
+                    <a href="https://www.facebook.com/fundacionsociallatialoren/" target="_blank"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/fundaciontialoren/" target="_blank"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://youtube.com/@fundaciontialoren8281" target="_blank"><i
+                            class="fab fa-youtube"></i></a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="bottom">
+        <p>Copyright ©2024 <a href="#">Tía Loren</a> Todos los derechos reservados</p>
+    </div>
+</footer>
+
+</html>

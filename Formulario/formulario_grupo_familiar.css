@@ -1,0 +1,472 @@
+* {
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    background-image: url(http://www.fundatialoren.com/img/fom_bg.jpg);
+}
+
+main {
+    max-width: 900px;
+    width: 90%;
+    margin: auto;
+    padding: 10px 40px;
+}
+
+header {
+    text-align: center;
+    margin-top: 40px;
+}
+
+h1 {
+    margin: 0;
+    color: #FECE1A;
+}
+
+.title,
+.subtitle {
+    color: #fffff0;
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background-color: #cdcdcd;
+    padding: 30px 25px;
+    border-radius: 10px;
+}
+
+.formulario__label {
+    display: block;
+    font-weight: 700;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#politica__label {
+    display: inline;
+}
+
+#grupo__politica {
+    grid-column: span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.formulario__grupo-input {
+    position: relative;
+}
+
+.formulario__input {
+    width: 100%;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 3px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 10px;
+    transition: .3s ease all;
+}
+
+.formulario__input:focus {
+    border: 3px solid #090265;
+    outline: none;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+}
+
+.formulario__input-error {
+    font-size: 12px;
+    margin-bottom: 0;
+    display: none;
+}
+
+.formulario__input-error-activo {
+    display: block;
+}
+
+.formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    bottom: 15px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.formulario__mensaje,
+.formulario__grupo-btn-enviar {
+    grid-column: span 2;
+}
+
+.formulario__mensaje {
+    height: 45px;
+    line-height: 45px;
+    background: #dc3545;
+    padding: 0 15px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    display: none;
+}
+
+.formulario__mensaje-activo {
+    display: block;
+}
+
+.formulario__mensaje p {
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.formulario__validacion-alerta {
+    margin-right: 8px;
+}
+
+.formulario__grupo-btn-enviar {
+    display: flex;
+    gap: 10px;
+    /* Espacio entre botones */
+    align-items: center;
+    justify-content: center;
+}
+
+
+.formulario__btn {
+    height: 45px;
+    margin-top: 20px;
+    line-height: 45px;
+    width: 30%;
+    background: #090265;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+.formulario__btn:hover {
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
+}
+
+.formulario__mensaje-exito {
+    font-size: 14px;
+    color: #119200;
+    display: none;
+}
+
+.formulario__mensaje-exito-activo {
+    display: block;
+}
+
+/* Estilos para validación */
+.formulario__grupo-correcto .formulario__validacion-estado {
+    color: #1ed12d;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__label {
+    color: #bb2929;
+}
+
+.formulario__grupo-incorrecto .formulario__validacion-estado {
+    color: #bb2929;
+    opacity: 1;
+}
+
+.formulario__grupo-incorrecto .formulario__input {
+    border: 3px solid #bb2929;
+}
+
+/* Media Queries */
+@media screen and (max-width: 800px) {
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario__grupo-terminos,
+    .formulario__mensaje,
+    .formulario__grupo-btn-enviar {
+        grid-column: 1;
+    }
+
+    .formulario__btn {
+        width: 100%;
+    }
+
+    .formulario__btn2 {
+        width: 100%;
+    }
+}
+
+/* Estilos añadir */
+/* Estilos para centrar los botones */
+.formulario__grupo-botones {
+    display: flex;
+    justify-content: center;
+    /* Centra los botones horizontalmente */
+    gap: 20px;
+    /* Espacio entre los botones */
+}
+
+/* Estilos para los botones con íconos */
+/* Ajuste para centrar los botones */
+.formulario__grupo-botones {
+    display: flex;
+    justify-content: center;
+    /* Centra los botones horizontalmente */
+    align-items: center;
+    /* Alinea los botones verticalmente */
+    gap: 20px;
+    /* Espacio entre los botones */
+    grid-column: span 2;
+    /* Ocupa el ancho completo en la cuadrícula del formulario */
+}
+
+/* Estilos para los botones */
+.formulario__btn2 {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    /* Espacio entre el texto y el ícono */
+    height: 45px;
+    padding: 0 15px;
+    background: #090265;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .1s ease all;
+}
+
+/* Hover para los botones */
+.formulario__btn2:hover {
+    background-color: #0b0a4a;
+    box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
+}
+
+/* Ícono en el botón */
+.formulario__btn2 .material-symbols-outlined {
+    font-size: 20px;
+}
+
+/* Botón de menor de edad (amarillo) */
+.formulario__btn-menor {
+    background: #ffc107;
+    /* Amarillo */
+}
+
+.formulario__btn-menor:hover {
+    background-color: #d4ac0d;
+    /* Hover amarillo más oscuro */
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* FORMULARIO */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:w@200;300;400;500;600;700&display=swap');
+
+:root {
+    --color-principal-pagina: #090265;
+    --color-secundario: #ffffff;
+    --color-contraste: #FECE1A;
+    --color-texto: #ffffff;
+    --color-fondo: #221b74;
+    --color-borde: #8481b2;
+}
+
+/*------------------------------------------footer------------------------------------------*/
+footer {
+    margin-top: 5vh;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    background: var(--color-principal-pagina);
+}
+
+footer .content {
+    max-width: 1350px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+footer .content p,
+a {
+    color: var(--color-secundario);
+}
+
+footer .content .box {
+    width: 33%;
+    transition: all 0.4s ease;
+}
+
+footer .content .topic {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--color-secundario);
+    margin-bottom: 16px;
+}
+
+footer .content p {
+    text-align: justify;
+}
+
+footer .content .lower .topic {
+    margin: 24px 0 5px 0;
+}
+
+footer .content .lower i {
+    padding-right: 16px;
+}
+
+footer .content .middle {
+    padding-left: 80px;
+}
+
+footer .content .middle a {
+    line-height: 32px;
+}
+
+
+
+footer .content .right input[type="submit"] {
+    height: 42px;
+    width: 100%;
+    font-size: 18px;
+    color: var(--color-texto);
+    background: var(--color-contraste);
+    outline: none;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-top: 12px;
+    border: 2px solid var(--color-contraste);
+    transition: all 0.3s ease-in-out;
+}
+
+.content .right input[type="submit"]:hover {
+    background: none;
+    color: var(--color-contraste);
+}
+
+footer .content .media-icons a {
+    font-size: 16px;
+    height: 45px;
+    width: 45px;
+    display: inline-block;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-align: center;
+    line-height: 43px;
+    border-radius: 5px;
+    border: 2px solid var(--color-borde);
+    margin: 30px 5px 0 0;
+    transition: all 0.3s ease;
+    justify-content: center;
+    align-items: center;
+    display: inline-flex;
+}
+
+#grupo__localidad {
+    transition: all 0.3s ease-in-out;
+}
+
+
+.content .media-icons a:hover {
+    border-color: var(--color-contraste);
+}
+
+footer .bottom {
+    width: 100%;
+    text-align: right;
+    color: var(--color-texto);
+    padding: 0 40px 5px 0;
+}
+
+footer .bottom a {
+    color: var(--color-contraste);
+}
+
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--color-contraste);
+}
+
+@media (max-width: 1100px) {
+    footer .content .middle {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 950px) {
+    footer .content .box {
+        width: 50%;
+    }
+
+    .content .right {
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 560px) {
+    footer {
+        position: relative;
+    }
+
+    footer .content .box {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    footer .content .middle {
+        padding-left: 0;
+    }
+}

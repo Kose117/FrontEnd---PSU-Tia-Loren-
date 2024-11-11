@@ -43,9 +43,6 @@ const validarFormulario = (e) => {
         case "correo_titular":
             validarCampo(expresiones.correo, e.target, 'correo');
             break;
-        // case "aceptar_politica":
-        //     validarCheckbox();
-        //     break;
     }
 }
 
@@ -129,8 +126,8 @@ calendar.forEach((calendar) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("formulario");
-    const btnAgregarGrupo = document.querySelector(".formulario__btn-agregar");
-    const btnEnviar = document.querySelector(".formulario__btn-enviar");
+    const btnAgregarGrupo = document.querySelector(".formulario__btn-enviar");
+    // const btnEnviar = document.querySelector(".formulario__btn-enviar");
     const modal = document.getElementById("myModal");
     const modalContent = document.querySelector(".modal-content");
     const closeModal = document.querySelector(".modal .close");
@@ -177,20 +174,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Evento para el botón "Enviar"
-    btnEnviar.addEventListener("click", (e) => {
-        e.preventDefault(); // Evita el envío del formulario directamente
-        validarCheckbox();
+    // btnEnviar.addEventListener("click", (e) => {
+    //     e.preventDefault(); // Evita el envío del formulario directamente
+    //     validarCheckbox();
 
-        if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
-            const datosFormulario = obtenerDatosFormulario(); // Obtener todos los datos del formularios
-            enviarDatos(datosFormulario);
-            mostrarModalExito("Formulario enviado exitosamente!");
-            formulario.reset(); // Resetea el formulario
-            ocultarValidaciones();
-        } else {
-            mostrarMensajeError();
-        }
-    });
+    //     if (campos.nrodocumento && campos.nombre && campos.celular && campos.direccion && campos.correo && campos.fecha_nacimiento && campos.politica) {
+    //         const datosFormulario = obtenerDatosFormulario(); // Obtener todos los datos del formularios
+    //         enviarDatos(datosFormulario);
+    //         mostrarModalExito("Formulario enviado exitosamente!");
+    //         formulario.reset(); // Resetea el formulario
+    //         ocultarValidaciones();
+    //     } else {
+    //         mostrarMensajeError();
+    //     }
+    // });
 
     function ocultarValidaciones() {
         const grupos = formulario.querySelectorAll(".formulario__grupo");

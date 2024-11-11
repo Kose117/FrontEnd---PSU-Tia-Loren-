@@ -19,17 +19,17 @@
 <body>
 
     <main>
-        <h3 class="title">Registro Individual</h3>
+        <h3 class="title">Registro Grupo Familiar</h3>
 
-        <p class="subtitle">Este formulario de registro individual está destinado exclusivamente a personas mayores de
-            18 años. Si deseas registrar a menores de edad y a tu grupo familiar, podrás hacerlo una vez hayas
-            completado este registro.</p>
+        <p class="subtitle">Este formulario de registro se compone de una parte de registro individual, destinada
+            exclusivamente a personas mayores de 18 años que deseen registrar a su grupo familiar, y una parte de
+            registro adicional, donde el adulto registrado podra anadir a su grupo familiar hasta 5 personas.</p>
 
         <form action="" class="formulario" id="formulario" method="POST">
 
             <!-- TIPO DE DOCUMENTO -->
             <div class="formulario__grupo" id="grupo__tipodocumento">
-                <label for="tipo_documento" class="formulario__label">Tipo de documento:</label>
+                <label for="tipo_documento" class="formulario__label">Tipo de documento del titular:</label>
                 <select class="formulario__input" id="tipo_documento" name="tipo_documento" required>
                     <option value="" disabled selected>Seleccione</option>
                     <option value="cedula">Cédula - CC</option>
@@ -39,7 +39,7 @@
 
             <!-- NRO DE DOCUMENTO -->
             <div class="formulario__grupo" id="grupo__nrodocumento">
-                <label for="numero_documento" class="formulario__label">Número de Documento:</label>
+                <label for="numero_documento" class="formulario__label">Número de documento del titular:</label>
                 <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" id="numero_documento" name="numero_documento" required
                         placeholder="Ingresar numero de documento">
@@ -51,7 +51,7 @@
 
             <!-- NOMBRE -->
             <div class="formulario__grupo" id="grupo__nombre">
-                <label for="nombre_titular" class="formulario__label">Nombre del Titular:</label>
+                <label for="nombre_titular" class="formulario__label">Nombre del titular:</label>
                 <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" id="nombre_titular" name="nombre_titular"
                         placeholder="Ingresar nombre" required>
@@ -62,7 +62,7 @@
 
             <!-- FECHA NACIMIENTO -->
             <div class="formulario__grupo" id="grupo__fechanacimiento">
-                <label for="fecha_nacimiento" class="formulario__label">Fecha de Nacimiento del Titular:</label>
+                <label for="fecha_nacimiento" class="formulario__label">Fecha de nacimiento del titular:</label>
                 <div class="formulario__grupo-input">
                     <input type="date" class="formulario__input" id="fecha_nacimiento" name="fecha_nacimiento" required>
                 </div>
@@ -72,7 +72,7 @@
 
             <!-- SEXO -->
             <div class="formulario__grupo" id="grupo__sexo">
-                <label for="sexo_titular" class="formulario__label">Sexo:</label>
+                <label for="sexo_titular" class="formulario__label">Sexo del titular:</label>
                 <select id="sexo_titular" class="formulario__input" name="sexo_titular" required>
                     <option value="" disabled selected>Seleccione</option>
                     <option value="mujer">Mujer</option>
@@ -83,7 +83,7 @@
 
             <!-- CELULAR -->
             <div class="formulario__grupo" id="grupo__celular">
-                <label for="celular_titular" class="formulario__label">Número Celular:</label>
+                <label for="celular_titular" class="formulario__label">Número celular del titular:</label>
                 <div class="formulario__grupo-input">
                     <input type="tel" class="formulario__input" id="celular_titular" name="celular_titular"
                         placeholder="Ingresar número de celular" required>
@@ -93,16 +93,6 @@
                 </p>
             </div>
 
-            <!-- DIRECCION -->
-            <div class="formulario__grupo" id="grupo__direccion">
-                <label for="direccion_titular" class="formulario__label">Dirección:</label>
-                <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" id="direccion_titular" name="direccion_titular"
-                        required>
-                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
-                </div>
-                <p class="formulario__input-error"> La direccioón debe tener el formato Cra 0 #00-00 </p>
-            </div>
 
             <!-- CORREO -->
             <div class="formulario__grupo" id="grupo__correo">
@@ -114,22 +104,9 @@
                 <p class="formulario__input-error">Ingresa un correo valido.</p>
             </div>
 
-            <!-- ESTRATO SOCIAL -->
-            <div class="formulario__grupo" id="grupo__estrato">
-                <label for="estrato_social" class="formulario__label">Estrato Social del Grupo Familiar:</label>
-                <select id="estrato_social" class="formulario__input" name="estrato_social" required>
-                    <option value="" disabled selected>Seleccione</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-            </div>
-
             <!-- EPS -->
             <div class="formulario__grupo" id="grupo__eps">
-                <label for="eps" class="formulario__label">EPS:</label>
+                <label for="eps" class="formulario__label">EPS del titular:</label>
                 <select name="eps" class="formulario__input" id="eps" required>
                     <option value="" disabled selected>Seleccione</option>
                     <option value="famisanar">Famisanar</option>
@@ -145,9 +122,40 @@
                 </select>
             </div>
 
+            <!-- GRUPO SANGUINEO -->
+            <div class="formulario__grupo" id="grupo__grupo_sanguineo">
+                <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo del titular:</label>
+                <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="a">A</option>
+                    <option value="b">B</option>
+                    <option value="o">O</option>
+                    <option value="ab">AB</option>
+                    <option value="a-">A-</option>
+                    <option value="b-">B-</option>
+                    <option value="o-">O-</option>
+                    <option value="ab-">AB-</option>
+                </select>
+            </div>
+
+
+            <!-- ESTRATO SOCIAL -->
+            <div class="formulario__grupo" id="grupo__estrato">
+                <label for="estrato_social" class="formulario__label">Estrato social del grupo familiar:</label>
+                <select id="estrato_social" class="formulario__input" name="estrato_social" required>
+                    <option value="" disabled selected>Seleccione</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </div>
+
+
             <!-- GRUPO POBLACIONAL -->
             <div class="formulario__grupo" id="grupo__grupo_poblacional">
-                <label for="grupo_poblacional" class="formulario__label">Grupo Poblacional:</label>
+                <label for="grupo_poblacional" class="formulario__label">Grupo poblacional del grupo familiar:</label>
                 <select name="grupo_poblacional" class="formulario__input" id="grupo_poblacional" required>
                     <option value="" disabled selected>Seleccione</option>
                     <option value="adulto">Adulto</option>
@@ -164,7 +172,8 @@
 
             <!-- GRUPO VULNERABILIDAD -->
             <div class="formulario__grupo" id="grupo__grupo_vulnerabilidad">
-                <label for="grupo_vulnerabilidad" class="formulario__label">Grupo Vulnerabilidad:</label>
+                <label for="grupo_vulnerabilidad" class="formulario__label">Grupo de vulnerabilidad del grupo familiar:
+                </label>
                 <select name="grupo_vulnerabilidad" class="formulario__input" id="grupo_vulnerabilidad" required>
                     <option value="" disabled selected>Seleccione</option>
                     <!-- Opción vacía predeterminada -->
@@ -179,21 +188,6 @@
                 </select>
             </div>
 
-            <!-- GRUPO SANGUINEO -->
-            <div class="formulario__grupo" id="grupo__grupo_sanguineo">
-                <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo:</label>
-                <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
-                    <option value="" disabled selected>Seleccione</option>
-                    <option value="a">A</option>
-                    <option value="b">B</option>
-                    <option value="o">O</option>
-                    <option value="ab">AB</option>
-                    <option value="a-">A-</option>
-                    <option value="b-">B-</option>
-                    <option value="o-">O-</option>
-                    <option value="ab-">AB-</option>
-                </select>
-            </div>
 
             <!-- CIUDAD DONDE VIVE -->
             <div class="formulario__grupo" id="grupo__grupo_ciudad">
@@ -212,6 +206,18 @@
                 </select>
             </div>
 
+            <!-- DIRECCION -->
+            <div class="formulario__grupo" id="grupo__direccion">
+                <label for="direccion_titular" class="formulario__label">Dirección del grupo familiar:</label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" id="direccion_titular" name="direccion_titular"
+                        required>
+                    <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                </div>
+                <p class="formulario__input-error"> La direccioón debe tener el formato Cra 0 #00-00 </p>
+            </div>
+
+            <!-- LOCALIDAD -->
             <div class="formulario__grupo" id="grupo__localidad" style="display: none;">
                 <label for="localidad" class="formulario__label">Localidad:</label>
                 <select name="localidad" class="formulario__input" id="localidad">

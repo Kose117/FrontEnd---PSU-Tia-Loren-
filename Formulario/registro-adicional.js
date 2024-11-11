@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Lista de campos específicos para cada tipo de formulario
         const camposMayores = ["nombre_titular", "celular_titular", "tipo_documento", "numero_documento", "fecha_nacimiento", "sexo_titular", "correo_titular", "eps", "grupo_sanguineo", "parentesco"];
-        const camposMenores = ["tipo_documento", "numero_documento", "nombre_titular", "fecha_nacimiento", "sexo_titular", "celular_titular", "parentesco"];
+        const camposMenores = ["nombre_titular", "celular_titular", "tipo_documento", "numero_documento", "fecha_nacimiento", "sexo_titular", "eps", "grupo_sanguineo", "parentesco"];
 
         // Selecciona la lista de campos dependiendo del tipo
         const camposPermitidos = tipo === "mayor" ? camposMayores : camposMenores;
@@ -179,6 +179,25 @@ document.addEventListener('DOMContentLoaded', () => {
         if (personCount < 5) {
             dynamicForm.innerHTML = `
                 <!-- Formulario completo para menor de edad -->
+                <div class="formulario__grupo" id="grupo__nombre">
+                    <label for="nombre_titular" class="formulario__label">Nombre:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" id="nombre_titular" name="nombre_titular"
+                        placeholder="Ingresar nombre" required>
+                        <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                    </div>
+                    <p class="formulario__input-error">El nombre solo puede contener letras y espacios.</p>
+                </div>
+                <div class="formulario__grupo" id="grupo__celular">
+                    <label for="celular_titular" class="formulario__label">Número Celular:</label>
+                    <div class="formulario__grupo-input">
+                        <input type="tel" class="formulario__input" id="celular_titular" name="celular_titular"
+                            placeholder="Ingresar número de celular" required>
+                        <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
+                    </div>
+                    <p class="formulario__input-error">El número de celular debe contener un máximo de 10 dígitos numéricos.
+                    </p>
+                </div>
                 <div class="formulario__grupo" id="grupo__tipodocumento">
                     <label for="tipo_documento" class="formulario__label">Tipo de documento:</label>
                     <select class="formulario__input" id="tipo_documento" name="tipo_documento" required>
@@ -197,15 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p class="formulario__input-error">El número de documento debe contener máximo 10 dígitos numéricos y
                         debe escribirse sin puntos ni comas.</p>
                 </div>
-                <div class="formulario__grupo" id="grupo__nombre">
-                    <label for="nombre_titular" class="formulario__label">Nombre:</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" id="nombre_titular" name="nombre_titular"
-                        placeholder="Ingresar nombre" required>
-                        <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
-                    </div>
-                    <p class="formulario__input-error">El nombre solo puede contener letras y espacios.</p>
-                </div>
+                
                 <div class="formulario__grupo" id="grupo__fechanacimiento">
                     <label for="fecha_nacimiento" class="formulario__label">Fecha de Nacimiento:</label>
                     <div class="formulario__grupo-input">
@@ -222,15 +233,35 @@ document.addEventListener('DOMContentLoaded', () => {
                         <option value="hombre">Niño</option>
                     </select>
                 </div>
-                <div class="formulario__grupo" id="grupo__celular">
-                    <label for="celular_titular" class="formulario__label">Número Celular:</label>
-                    <div class="formulario__grupo-input">
-                        <input type="tel" class="formulario__input" id="celular_titular" name="celular_titular"
-                            placeholder="Ingresar número de celular" required>
-                        <i class="formulario__validacion-estado material-symbols-outlined">cancel</i>
-                    </div>
-                    <p class="formulario__input-error">El número de celular debe contener un máximo de 10 dígitos numéricos.
-                    </p>
+                <div class="formulario__grupo" id="grupo__eps">
+                    <label for="eps" class="formulario__label">EPS:</label>
+                    <select name="eps" class="formulario__input" id="eps" required>
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="famisanar">Famisanar</option>
+                        <option value="salud_total">Salud Total</option>
+                        <option value="compensar">Compensar</option>
+                        <option value="sisben">Sisben</option>
+                        <option value="coomeva">Coomeva</option>
+                        <option value="sanitas">Sanitas</option>
+                        <option value="cafe_salud">Café Salud</option>
+                        <option value="nueva_eps">Nueva EPS</option>
+                        <option value="sura">Sura</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
+                <div class="formulario__grupo" id="grupo__grupo_sanguineo">
+                    <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo:</label>
+                    <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="o">O</option>
+                        <option value="ab">AB</option>
+                        <option value="a-">A-</option>
+                        <option value="b-">B-</option>
+                        <option value="o-">O-</option>
+                        <option value="ab-">AB-</option>
+                    </select>
                 </div>
 
                 <div class="formulario__grupo" id="grupo__parentesco">
@@ -377,36 +408,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
 
                 <div class="formulario__grupo" id="grupo__eps">
-                <label for="eps" class="formulario__label">EPS:</label>
-                <select name="eps" class="formulario__input" id="eps" required>
-                    <option value="" disabled selected>Seleccione</option>
-                    <option value="famisanar">Famisanar</option>
-                    <option value="salud_total">Salud Total</option>
-                    <option value="compensar">Compensar</option>
-                    <option value="sisben">Sisben</option>
-                    <option value="coomeva">Coomeva</option>
-                    <option value="sanitas">Sanitas</option>
-                    <option value="cafe_salud">Café Salud</option>
-                    <option value="nueva_eps">Nueva EPS</option>
-                    <option value="sura">Sura</option>
-                    <option value="otra">Otra</option>
-                </select>
-            </div>
+                    <label for="eps" class="formulario__label">EPS:</label>
+                    <select name="eps" class="formulario__input" id="eps" required>
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="famisanar">Famisanar</option>
+                        <option value="salud_total">Salud Total</option>
+                        <option value="compensar">Compensar</option>
+                        <option value="sisben">Sisben</option>
+                        <option value="coomeva">Coomeva</option>
+                        <option value="sanitas">Sanitas</option>
+                        <option value="cafe_salud">Café Salud</option>
+                        <option value="nueva_eps">Nueva EPS</option>
+                        <option value="sura">Sura</option>
+                        <option value="otra">Otra</option>
+                    </select>
+                </div>
 
-            <div class="formulario__grupo" id="grupo__grupo_sanguineo">
-                <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo:</label>
-                <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
-                    <option value="" disabled selected>Seleccione</option>
-                    <option value="a">A</option>
-                    <option value="b">B</option>
-                    <option value="o">O</option>
-                    <option value="ab">AB</option>
-                    <option value="a-">A-</option>
-                    <option value="b-">B-</option>
-                    <option value="o-">O-</option>
-                    <option value="ab-">AB-</option>
-                </select>
-            </div>
+                <div class="formulario__grupo" id="grupo__grupo_sanguineo">
+                    <label for="grupo_sanguineo" class="formulario__label">Grupo Sanguineo:</label>
+                    <select name="grupo_sanguineo" class="formulario__input" id="grupo_sanguineo" required>
+                        <option value="" disabled selected>Seleccione</option>
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="o">O</option>
+                        <option value="ab">AB</option>
+                        <option value="a-">A-</option>
+                        <option value="b-">B-</option>
+                        <option value="o-">O-</option>
+                        <option value="ab-">AB-</option>
+                    </select>
+                </div>
 
                 <div class="formulario__grupo" id="grupo__parentesco">
                     <label for="parentesco" class="formulario__label">Parentesco:</label>
